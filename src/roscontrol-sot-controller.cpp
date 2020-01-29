@@ -1077,6 +1077,10 @@ void RCSotController::update(const ros::Time &, const ros::Duration &period) {
     } catch (std::exception &e) {
       throw e;
     }
+
+    localStandbyEffortControlMode(period);
+    localStandbyVelocityControlMode(period);
+    localStandbyPositionControlMode();
   }
 }
 
