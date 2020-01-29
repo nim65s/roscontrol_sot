@@ -102,7 +102,7 @@ void Log::record(DataToLog &aDataToLog) {
     lref_ = 0;
     lrefts_ = 0;
   }
-  assert(lref_ == lrefts_*profileLog_.nbDofs);
+  assert(lref_ == lrefts_ * profileLog_.nbDofs);
 }
 
 void Log::start_it() {
@@ -124,22 +124,26 @@ void Log::stop_it() {
 }
 
 void Log::save(std::string &fileName) {
-  assert(lref_ == lrefts_*profileLog_.nbDofs);
+  assert(lref_ == lrefts_ * profileLog_.nbDofs);
 
   std::string suffix("-mastate.log");
-  saveVector(fileName, suffix, StoredData_.motor_angle, profileLog_.nbDofs, lref_);
+  saveVector(fileName, suffix, StoredData_.motor_angle, profileLog_.nbDofs,
+             lref_);
   suffix = "-jastate.log";
-  saveVector(fileName, suffix, StoredData_.joint_angle, profileLog_.nbDofs, lref_);
+  saveVector(fileName, suffix, StoredData_.joint_angle, profileLog_.nbDofs,
+             lref_);
   suffix = "-vstate.log";
-  saveVector(fileName, suffix, StoredData_.velocities, profileLog_.nbDofs, lref_);
+  saveVector(fileName, suffix, StoredData_.velocities, profileLog_.nbDofs,
+             lref_);
   suffix = "-torques.log";
   saveVector(fileName, suffix, StoredData_.torques, profileLog_.nbDofs, lref_);
   suffix = "-motor-currents.log";
-  saveVector(fileName, suffix, StoredData_.motor_currents, profileLog_.nbDofs, lref_);
+  saveVector(fileName, suffix, StoredData_.motor_currents, profileLog_.nbDofs,
+             lref_);
   suffix = "-accelero.log";
-  saveVector(fileName, suffix, StoredData_.accelerometer, 3, 3*lrefts_);
+  saveVector(fileName, suffix, StoredData_.accelerometer, 3, 3 * lrefts_);
   suffix = "-gyro.log";
-  saveVector(fileName, suffix, StoredData_.gyrometer, 3, 3*lrefts_);
+  saveVector(fileName, suffix, StoredData_.gyrometer, 3, 3 * lrefts_);
 
   ostringstream oss;
   oss << "-forceSensors.log";
@@ -150,7 +154,7 @@ void Log::save(std::string &fileName) {
 
   suffix = "-temperatures.log";
   saveVector(fileName, suffix, StoredData_.temperatures, profileLog_.nbDofs,
-      lref_);
+             lref_);
 
   suffix = "-controls.log";
   saveVector(fileName, suffix, StoredData_.controls, profileLog_.nbDofs, lref_);

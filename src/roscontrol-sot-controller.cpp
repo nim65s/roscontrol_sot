@@ -113,8 +113,8 @@ void RCSotController::initLogs(ros::NodeHandle &robot_nh) {
     int minutes = static_cast<int>(floor(length * dt_ / 60));
     int seconds = static_cast<int>(floor(length * dt_)) - minutes * 60;
 
-    ROS_INFO_STREAM("Number of iterations that will be logged " << length
-        << ", i.e. " << minutes << "m" << seconds << "s");
+    ROS_INFO_STREAM("Number of iterations that will be logged "
+                    << length << ", i.e. " << minutes << "m" << seconds << "s");
   }
 
   /// Initialize the size of the data to store.

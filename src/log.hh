@@ -80,8 +80,7 @@ private:
   // \note avector is a circular buffer. Data will be written from
   //       start to N, and then from 0 to start.
   void saveVector(std::string &filename, std::string &suffix,
-                  const std::vector<double> &avector,
-                  std::size_t size,
+                  const std::vector<double> &avector, std::size_t size,
                   std::size_t start);
 
 public:
